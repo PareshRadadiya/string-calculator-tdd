@@ -1,6 +1,16 @@
 function parseNumbers(numbersString) {
-  const regex = new RegExp('[,\n]');
-  return numbersString.split(regex).map(num => parseInt(num));
+  const customDelimiterMatch = numbersString.match(/\/\/(.)\n/);
+  let delimiter = ',|\n';
+
+  if (customDelimiterMatch) {
+    delimiter = customDelimiterMatch[1];
+    numbersString = numbersString.slice(4); // Remove from beginning //;\n
+  }
+
+  const regex = new RegExp(`[${delimiter}]`);
+  numbersString = numbersString.split(regex);
+
+  return numbersString.map(Number);
 }
 
 export function add(numbers) {
