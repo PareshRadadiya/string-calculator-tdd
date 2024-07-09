@@ -21,9 +21,9 @@ test('custom delimiter returns the sum', () => {
 });
 
 test('negative number throws exception', () => {
-  expect(() => add('-1,2')).toThrowError('negative numbers not allowed: -1');
+  expect(() => add('-1,2')).toThrow('negative numbers not allowed: -1');
 });
 
 test('multiple negative numbers throw exception with all negatives', () => {
-  expect(() => add('-1,-2,3')).toThrowError('negative numbers not allowed: -1,-2');
+  expect(() => add('-1,-2,3')).toThrow('negative numbers not allowed: -1,-2');
 });

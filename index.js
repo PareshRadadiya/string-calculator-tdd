@@ -1,6 +1,15 @@
+function validateNegatives(numbersArray) {
+  const negativeNumbers = numbersArray.filter((num) => num < 0);
+  if (negativeNumbers.length) {
+    throw new Error(
+      `negative numbers not allowed: ${negativeNumbers.join(",")}`
+    );
+  }
+}
+
 function parseNumbers(numbersString) {
   const customDelimiterMatch = numbersString.match(/\/\/(.)\n/);
-  let delimiter = ',|\n';
+  let delimiter = ",|\n";
 
   if (customDelimiterMatch) {
     delimiter = customDelimiterMatch[1];
@@ -19,5 +28,6 @@ export function add(numbers) {
   }
 
   const numbersArray = parseNumbers(numbers);
+  validateNegatives(numbersArray);
   return numbersArray.reduce((sum, num) => sum + parseInt(num), 0);
 }
