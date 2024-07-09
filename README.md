@@ -28,7 +28,6 @@ console.log(add("//;\n1;2")); // Output: 3
 ## Tests
 This project uses Jest for testing. To run the tests, use the following command:
 ```bash
-Copy code
 npm test
 ```
 
