@@ -11,3 +11,8 @@ test('single number returns the number', () => {
 test('two numbers returns the sum', () => {
   expect(add('1,2')).toBe(3);
 });
+
+
+test('newline or comma delimiter returns the sum', () => {
+  expect(add('1\n2,3')).toBe(6);
+});
